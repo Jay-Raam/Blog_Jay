@@ -19,7 +19,7 @@ const CreatePost = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/post",
+        "https://jay-blog-server.vercel.app/post",
         formData,
         {
           headers: {

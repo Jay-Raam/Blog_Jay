@@ -19,7 +19,7 @@ export interface BlogPost {
 }
 
 async function fetchBlogPost(id: string): Promise<BlogPost> {
-  const res = await fetch(`http://localhost:3001/blogs/${id}`, {
+  const res = await fetch(`https://jay-blog-server.vercel.app/blogs/${id}`, {
     cache: "force-cache",
   });
 

@@ -15,7 +15,7 @@ export default async function handler(
       throw new Error('Invalid id');
     }
 
-    const response = await fetch(`http://localhost:3001/search?id=${id}`);
+    const response = await fetch(`https://jay-blog-server.vercel.app/search?id=${id}`);
     
     if (!response.ok) {
       throw new Error('Network response was not ok');

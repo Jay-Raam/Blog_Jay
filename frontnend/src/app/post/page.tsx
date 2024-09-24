@@ -17,7 +17,7 @@ export interface BlogPost {
 }
 
 const BlogList = async () => {
-  const response = await fetch("http://localhost:3001/blogs", {
+  const response = await fetch("https://jay-blog-server.vercel.app/blogs", {
     cache: "force-cache",
   });
   const blogs: BlogPost[] = await response.json();

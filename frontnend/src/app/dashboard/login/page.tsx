@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/login", {
+      const response = await fetch("https://jay-blog-server.vercel.app/login", {
         // Use relative path to your API
         method: "POST",
         headers: {

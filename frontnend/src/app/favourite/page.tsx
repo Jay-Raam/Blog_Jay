@@ -31,7 +31,9 @@ const FavoriteBlog = () => {
     try {
       const responses = await Promise.all(
         favoriteIds.map((id) =>
-          fetch(`http://localhost:3001/blogs/${id}`).then((res) => res.json())
+          fetch(`https://jay-blog-server.vercel.app/blogs/${id}`).then((res) =>
+            res.json()
+          )
         )
       );
       setBlogs(responses);

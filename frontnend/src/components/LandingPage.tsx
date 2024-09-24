@@ -86,11 +86,11 @@ export default async function LandingPage() {
               continue to write blogs about my experiences for this world.
             </p>
             <p className="text-[1rem] text-center lg:text-left">
-              When I'm not writing, you can find me hiking through nature
+              When I&apos;m not writing, you can find me hiking through nature
               trails, getting lost in a good book, or experimenting in the
               kitchen with new recipes, or expressing love or what I feel. I
-              believe that every moment holds a story, and I’m excited to share
-              mine with you while learning about yours too.
+              believe that every moment holds a story, and I&apos;m excited to
+              share mine with you while learning about yours too.
             </p>
             <p className="text-[1rem] text-center lg:text-left">
               What film/blog has touched your heart recently? Share your
