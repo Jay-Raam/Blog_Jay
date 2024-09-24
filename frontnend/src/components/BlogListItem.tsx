@@ -78,7 +78,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ blog }) => {
           alt="blog post"
           style={{ objectFit: "cover" }}
           quality={100}
-          className="w-[300px] h-auto md:w-[500px]"
+          className="w-[300px] h-auto md:w-[450px]"
           width={1000}
           height={1000}
         />
