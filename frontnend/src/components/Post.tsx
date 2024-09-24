@@ -7,22 +7,15 @@ const CreatePost = () => {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [labels, setLabels] = useState<string>("");
-  const [coverImage, setCoverImage] = useState<string>("");
   const [responseMessage, setResponseMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!coverImage) {
-      setResponseMessage("Cover image URL is required.");
-      return;
-    }
-
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
     formData.append("labels", labels);
-    formData.append("coverImage", coverImage); // Send the URL directly
 
     try {
       const response = await axios.post(
@@ -39,7 +32,6 @@ const CreatePost = () => {
       setTitle("");
       setContent("");
       setLabels("");
-      setCoverImage("");
     } catch (error: any) {
       setResponseMessage(
         error.response?.data?.message || "Error creating post"
@@ -79,16 +71,6 @@ const CreatePost = () => {
           id="labels"
           value={labels}
           onChange={(e) => setLabels(e.target.value)}
-          required
-          className="border-red-500 outline"
-        />
-
-        <label htmlFor="coverImage">Cover Image URL:</label>
-        <input
-          type="text"
-          id="coverImage"
-          value={coverImage}
-          onChange={(e) => setCoverImage(e.target.value)}
           required
           className="border-red-500 outline"
         />

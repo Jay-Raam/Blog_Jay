@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const multer = require("multer");
 
 const app = express();
 const PORT = 3001;
@@ -9,7 +8,6 @@ const PORT = 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
-const upload = multer({ dest: "uploads/" });
 
 // MongoDB connection string
 const mongoURI =
@@ -112,8 +110,8 @@ app.get("/blogs", async (req, res) => {
 });
 
 // post routes
-app.post("/post", upload.single("coverImage"), async (req, res) => {
-  const { title, content, labels, coverImage } = req.body;
+app.post("/post", async (req, res) => {
+  const { title, content, labels } = req.body;
   const uniqueId = `${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
   try {
@@ -122,7 +120,6 @@ app.post("/post", upload.single("coverImage"), async (req, res) => {
       title,
       content: content,
       labels: labels.split(","),
-      Image: coverImage,
       selfLink:
         "https://www.googleapis.com/blogger/v3/blogs/3908422654159649151/posts/6672486155132627158",
       displayName: "Jaysriraam",
