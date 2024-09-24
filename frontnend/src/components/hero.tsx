@@ -6,20 +6,20 @@ const Data = [
   {
     image:
       "https://mir-s3-cdn-cf.behance.net/project_modules/1400/cae1ef208359979.66ed308883b08.jpeg",
-    title: "என் ராட்சசி",
-    link: "",
+    title: "முதல் பரிசு",
+    link: "https://blog-jay.vercel.app/post/66eacc1216f3ae24df941e19",
   },
   {
     image:
       "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f05c00201475293.667516935c970.jpg",
     title: "பயணம் ஆண்டிபட்டி - கோழிப்பண்ணை",
-    link: "",
+    link: "https://blog-jay.vercel.app/post/66eacc1116f3ae24df941e15",
   },
   {
     image:
       "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a96aa0208339993.66eccacd48645.jpg",
     title: "என் கொள்கை",
-    link: "",
+    link: "https://blog-jay.vercel.app/post/66eacc1216f3ae24df941e17",
   },
 ];
 
