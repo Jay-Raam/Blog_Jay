@@ -1,7 +1,7 @@
-## Blogify — v1
+## Blog — v1
 
 Welcome to Blog! I’m Jayasriraam, a front-end Developer based in Chennai, and I’m excited to introduce my latest project. 
-Blog is an engaging web application designed for users to explore, create, and share blog posts. 
+Blog is an engaging web application designed for share My blog posts. 
 With a user-friendly interface and powerful backend capabilities, Blogify provides an enjoyable and seamless blogging experience.
 
 ## Tech Stack
