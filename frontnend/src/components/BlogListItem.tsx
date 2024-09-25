@@ -87,7 +87,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ blog }) => {
       <p>Author: {blog.authorName || blog.displayName}</p>
       <div className="flex justify-center items-center gap-4 flex-wrap">
         <Link href={`/post/${blog._id}`}>
-          <button className="group flex items-center text-white px-2 py-1 rounded focus:outline-none focus:ring-2 transition">
+          <button className="group flex items-center text-black dark:text-white px-2 py-1 rounded focus:outline-none focus:ring-2 transition">
             Read More
             <span className="ml-1 transition-transform duration-200 group-hover:translate-x-1">
               <MoveRight />
@@ -96,7 +96,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ blog }) => {
         </Link>
         <button
           onClick={handleFavorite}
-          className="group flex items-center text-white px-2 py-1 rounded focus:outline-none focus:ring-2 transition"
+          className="group flex items-center text-black dark:text-white px-2 py-1 rounded focus:outline-none focus:ring-2 transition"
         >
           Favourite
           <span className="ml-1 transition-transform duration-200 group-hover:translate-x-1">

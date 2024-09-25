@@ -21,6 +21,8 @@ const BlogList = async () => {
     cache: "force-cache",
   });
   const blogs: BlogPost[] = await response.json();
+  console.log(blogs);
+  console.log(blogs.length);
 
   return (
     <>
