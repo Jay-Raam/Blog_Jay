@@ -54,7 +54,7 @@ const Navbar = forwardRef(function index(props, ref: any) {
           </div>
           <Magnetic>
             <Link href="/favourite">
-              <h1 className="font-bold text-[16px] md:text-xl">Favotire</h1>
+              <h1 className="font-bold text-[16px] md:text-xl">Favoutire</h1>
             </Link>
           </Magnetic>
         </nav>

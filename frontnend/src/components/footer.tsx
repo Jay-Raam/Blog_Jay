@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <div className="flex justify-center items-center gap-4 flex-col w-full lg:w-1/3">
           <Link href="/post">Blog</Link>
-          <Link href="/favotire">favotire</Link>
+          <Link href="/favourite">Favourite</Link>
         </div>
         <div className="flex justify-center items-center gap-4 flex-col w-full lg:w-1/3">
           <div className="flex justify-center items-center gap-4">

@@ -21,7 +21,15 @@ const BlogList = async () => {
     cache: "force-cache",
   });
   const blogs: BlogPost[] = await response.json();
-  console.log(blogs);
+
+  const blogCount = blogs.length;
+  const ImageResponse = await fetch(
+    `https://api.unsplash.com/photos/random/?client_id=jEemOE1gKbjCZgq7QqTrE6qjihorxfNOVdrRv2RF8rE&count=${blogCount}&query=illustrator`,
+    {
+      cache: "force-cache",
+    }
+  );
+  const images: any[] = await ImageResponse.json();
   console.log(blogs.length);
 
   return (
@@ -30,8 +38,12 @@ const BlogList = async () => {
       <div className="blog-post mt-5 pb-4">
         {blogs.length > 0 && (
           <ul className="flex justify-center items-center gap-4 md:gap-2 max-w-[1550px] mx-auto my-0 flex-wrap mt-5">
-            {blogs.map((blog) => (
-              <BlogListItem key={blog._id} blog={blog} />
+            {blogs.map((blog, index) => (
+              <BlogListItem
+                key={blog._id}
+                blog={blog}
+                imageUrl={images[index]?.urls?.regular}
+              />
             ))}
           </ul>
         )}

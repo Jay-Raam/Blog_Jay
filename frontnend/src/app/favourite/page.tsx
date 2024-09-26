@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { shopifyImages } from "@/components/ui/image";
 import Link from "next/link";
 import Image from "next/image";
 import { MoveRight } from "lucide-react";
@@ -11,6 +10,7 @@ import Navbar from "@/components/Navbar";
 const FavoriteBlog = () => {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [blogs, setBlogs] = useState<{ _id: string; title: string }[]>([]);
+  const [images, setImages] = useState<{ urls: { regular: string } }[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { toast } = useToast();
 
@@ -29,14 +29,20 @@ const FavoriteBlog = () => {
     }
 
     try {
-      const responses = await Promise.all(
+      const blogResponses = await Promise.all(
         favoriteIds.map((id) =>
           fetch(`https://jay-blog-server.vercel.app/blogs/${id}`).then((res) =>
             res.json()
           )
         )
       );
-      setBlogs(responses);
+
+      const imageResponses = await fetch(
+        `https://api.unsplash.com/photos/random/?client_id=jEemOE1gKbjCZgq7QqTrE6qjihorxfNOVdrRv2RF8rE&count=${favoriteIds.length}&query=illustrator`
+      ).then((res) => res.json());
+
+      setBlogs(blogResponses);
+      setImages(imageResponses);
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
       toast({
@@ -67,21 +73,24 @@ const FavoriteBlog = () => {
       <div className="favourite">
         {loading && (
           <div className="h-[100vh] flex justify-center items-center">
-            Loading...
+            <span>Loading...</span>
+          </div>
+        )}
+        {!loading && blogs.length === 0 && (
+          <div className="h-[100vh] flex justify-center items-center">
+            No favorites found.
           </div>
         )}
         {blogs.length > 0 && (
           <ul className="flex justify-center items-center gap-4 md:gap-2 max-w-[1550px] mx-auto my-0 flex-wrap mt-5">
-            {blogs.map((blog) => (
+            {blogs.map((blog, index) => (
               <li
                 key={blog._id}
                 className="w-[300px] md:w-[500px] flex justify-center items-center gap-2 flex-col h-auto text-center"
               >
                 <Link href={`/post/${blog._id}`}>
                   <Image
-                    src={
-                      shopifyImages[blogs.indexOf(blog) % shopifyImages.length]
-                    }
+                    src={images[index]?.urls.regular || ""}
                     alt={blog.title}
                     width={300}
                     height={600}
@@ -94,7 +103,7 @@ const FavoriteBlog = () => {
                   <div className="buttons">
                     <button
                       onClick={() => handleFavorite(blog._id, blog.title)}
-                      className="group flex items-center text-white px-2 py-1 rounded focus:outline-none focus:ring-2 transition"
+                      className="group flex items-centere text-black dark:text-white px-2 py-1 rounded focus:outline-none focus:ring-2 transition"
                     >
                       Remove
                       <span className="ml-1 transition-transform duration-200 group-hover:translate-x-1">
